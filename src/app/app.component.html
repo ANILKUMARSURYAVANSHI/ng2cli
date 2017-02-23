@@ -3,3 +3,9 @@
 </h1>
 <div>Default pagination</div>
 <ngb-pagination [collectionSize]="70" [(page)]="page"></ngb-pagination>
+<h1>Angular Router</h1>
+  <nav>
+    <a routerLink="/main" routerLinkActive="active">Crisis Center</a>
+    <a routerLink="/myjs" routerLinkActive="active">Heroes</a>
+  </nav>
+  <router-outlet></router-outlet>
