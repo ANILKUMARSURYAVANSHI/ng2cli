@@ -1,3 +1,259 @@
-<p>
-  my-gis-component works!  HI HHHHHHH
-</p>
+
+<pre> {{heroes  | json }}</pre>
+   <div class="col-xs-12 col-md-1 col-sm-1 col-lg-1">
+    </div>
+    
+    
+    <div class="col-xs-12 col-md-10 col-sm-10 col-lg-10 ">
+      <header>
+        <div class="alert alert-info">
+          <b>
+          NON-SUBMISSION OF MANDATORY AFFIDAVIT<br>
+          (ONLINE SUBMISSION OF REASON FOR NON-SUBMISSION)</b>
+        </div>
+      </header>
+      <div class="panel panel-default">
+        <div class="panel-heading">Basic Details</div>
+        <div class="panel-body bgcolordiv">
+          <form  class="form-horizontal"  #regisForm="ngForm">
+            
+            <div class="form-group col-sm-12 col-xs-12 col-md-12">
+              <label class="control-label col-sm-2" for="Instt">Name of Institution:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" [(ngModel)]="model.instname" name="instname" id="instname" placeholder="Name of instt"/>
+              </div>
+              
+              
+              
+              <label class="control-label col-sm-2" for="Company"> Name of Society/Trust/Company:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="Company" placeholder="eg..BAJAJ">
+              </div>
+            </div>
+            <div class="form-group col-sm-12 col-xs-12 col-md-12">
+              <label class="control-label col-sm-2" for="management"> Type of management:</label>
+              <div class="col-sm-4">
+                
+                <select class="form-control" id="sel1">
+                  <!--<option> Government,</option>
+                  <option>Govt Aided</option>
+                  <option>Govt. Unaided,</option>
+                  <option>Private</option>-->
+                   <option *ngFor="let pow of mgmtTypeList" [value]="pow">{{pow}}</option>
+                </select>
+              </div>
+              
+              <label class="control-label col-sm-2" for="catagory">Institution Category:</label>
+              <div class="col-sm-4">
+                
+                <select class="form-control" id="sel1">
+                  <option> Co-Ed Institute,</option>
+                  <option>Govt Aided</option>
+                  <option>Only for Women,</option>
+                  <option>Only for Men</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group col-sm-12 col-xs-12 col-md-12">
+              <label class="control-label col-sm-2" for="minority">Whether the instute is a minority institute:</label>
+              <div class="col-sm-4">
+                <label class="radio-inline">
+                  <input type="radio" name="min" value="true"> YES </label>
+                  
+                  <label class="radio-inline">
+                    <input type="radio" name="min" value="false"> NO </label>
+                  </div>
+                  <label class="control-label col-sm-2" for="address">Address (with Plot. No/ Khasra No):</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="address" placeholder="Address">
+                  </div>
+                </div>
+                <div class="form-group col-sm-12 col-xs-12 col-md-12">
+                  <label class="control-label col-sm-2" for="Village">Name of Village/Colony:</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="Village" placeholder="Village/Colony">
+                  </div>
+                  <label class="control-label col-sm-2" for="Tehsil">Tehsil/Division:</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="Tehsil" placeholder= Tehsil>
+                  </div>
+                </div>
+                <div class="form-group col-sm-12 col-xs-12 col-md-12">
+                  <label class="control-label col-sm-2" for="District">District:</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="District" placeholder="District">
+                  </div>
+                  
+                  <label class="control-label col-sm-2" for="state">state:</label>
+                  <div class="col-sm-4">
+                    
+                    <select class="form-control" id="state">
+                      <option> Haryana,</option>
+                      <option>Delhi</option>
+                      <option>MP,</option>
+                      <option>ABC</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-sm-12 col-xs-12 col-md-12">
+                  <label class="control-label col-sm-2" for="pin">Pin code:</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="pin" placeholder="Pin code">
+                  </div>
+                  <label class="control-label col-sm-2" for="Moble no">Mobile NO:</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="Mobile no" placeholder="Mobile no">
+                  </div></div>
+                  <div class="form-group col-sm-12 col-xs-12 col-md-12">
+                    <label class="control-label col-sm-2" for="Telephone"> landline Telephone no:</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="Telephone" placeholder="Telephone no">
+                    </div>
+                    <label class="control-label col-sm-2" for="email">Email ID:</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="email" placeholder="eg. Govt.form@email.com">
+                    </div></div>
+                    <div class="form-group col-sm-12 col-xs-12 col-md-12">
+                      <label class="control-label col-sm-2" for="website"> Website Address:</label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control" id="website" placeholder="www.website address.com">
+                      </div>
+                      <label class="control-label col-sm-2" for="NCTE Commitee">Name of NCTE Regional Commitee Under which Judiction the Institute located:</label>
+                      <div class="col-sm-4">
+                        
+                        <select class="form-control" id="Region">
+                          <option> Northern,</option>
+                          <option>Southern</option>
+                          <option>Eastern (and North-Eastern),</option>
+                          <option>Western Region</option>
+                        </select>
+                      </div>
+                    </div>
+                    <input type="submit" class="btn btn-submit" (click)="newReg();" value="submit">
+                  </form>
+                </div>
+              </div>
+              
+              <div class="panel panel-default">
+                <div class="panel-heading">Application Details</div>
+                <div class="panel-body bgcolordiv">
+                  
+                  <table class="table table-bordered table-condensed">
+                    
+                    <tr>
+                      <th>(a)Application ID</th>
+                      <th>(b)Name of Course</th>
+                      <th>(c)No. of Units</th>
+                      <th>(d)Date of Recognition</th>
+                      <th>(d)Date of Recognition </th>
+                      <th>(e)Recognition Order No</th>
+                      <th>(g)Name of Affiliating Body/ University</th>
+                      <th>(f)Scan Copy of Recognition Order(attach/upload)</th>
+                    </tr>
+                    
+                    
+                    <tr>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /> 
+                      </td>
+                      
+                      
+                    </tr>
+                    
+                    <tr>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" />
+                      </td>
+                    </tr>
+                   
+                    <tr>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" />
+                </td>
+                    </tr>
+                    
+                    <tr>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" /></td>
+                      <td><input type="text" class="form-control" />
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <br>
+              <div class="alert alert-info col-sm-12 col-xs-12 col-md-12">
+                <strong>Info!</strong> Reasons for Non-Submission of affidavit detail sought through mandatory affidavit
+                (Instructions/Undertaking Statement if any enter here<input type="text" class="form-control">
+              </div>
+              <br>
+              <br>
+              <div class="panel panel-default" style="margin-top: 85px;">
+                <div class="panel-heading">Persons Details</div>
+                <div class="panel-body bgcolordiv">
+                  <div class="form-group col-sm-12 col-xs-12 col-md-12">
+                    <label class="control-label col-sm-2" for="Person">Name of Authorised person:</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="Person" placeholder="Name">
+                    </div>
+                    <label class="control-label col-sm-2" for="Designation">Designation:</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" id="sel1">
+                        <option> CEO,</option>
+                        <option>CHAIRMAN</option>
+                        <option>AUTH,</option>
+                        <option>Private</option>
+                      </select>
+                    </div></div>
+                    
+                    <div class="form-group col-sm-12 col-xs-12 col-md-12">
+                      <label class="control-label col-sm-2" for="Phone no"> Mobile No of Authorised Person:</label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control" id="Phone no" placeholder="9812345678">
+                      </div>
+                      
+                    </div>
+                    <div class="form-group col-sm-12 col-xs-12 col-md-12">
+                      
+                      <label class="control-label col-sm-6" for="email">Upload Scanned Signature of Authorized Person along with Institute Round Seal, and digital passport photo</label>
+                      <div class="col-sm-4">
+                        <input type="file" class="form-control" id="signature" placeholder="Signature">
+                      </div>
+                      <div class="col-sm-2">
+                        <button class="button btn-info">Upload</button>
+                      </div>
+                    </div>
+                    <div class=" alert alert-success col-sm-12 col-xs-12 col-md-12"><strong>NOTE:</strong>
+                      PHYSICAL COPY OF THE ONLINE PROFORMA ALONG WITH COPIES OF RECOGNITION ORDER, DULY SEALED AND SIGNED AT EACH PAGE BY THE AUTHORISED SIGNATORY NEEDS TO BE UPLOADED ONLINE AND THE TRUE COPY OF THE SAME NEED TO SUBMITTED TO THE RESPECTIVE NCTE HEADQUARTER
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="pull-right"> <button class="button btn-success">Submit</button>
+                <button class="button btn-danger">Cancel</button></div>
+              </div>
+              <div class="col-xs-12 col-md-1 col-sm-1 col-lg-1">
+              </div>
