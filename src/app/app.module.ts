@@ -9,9 +9,14 @@ import { AppComponent } from './app.component';
 import { MyWelcomeComponentComponent } from './my-welcome-component/my-welcome-component.component';
 import { MyGisComponentComponent } from './my-gis-component/my-gis-component.component';
 import { MyCourseServiceService } from './my-course-service.service';
+import { ModelComponentComponent , NgbdModalContent} from './model-component/model-component.component';
+
+
 const appRoutes: Routes = [
   { path: 'main', component: MyWelcomeComponentComponent },
   { path: 'myjs',      component: MyGisComponentComponent },
+    { path: 'mycontent',      component: ModelComponentComponent },
+
 
   { path: '',
     redirectTo: '/main',
@@ -24,7 +29,10 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     MyWelcomeComponentComponent,
-    MyGisComponentComponent
+    MyGisComponentComponent,
+    ModelComponentComponent,
+    NgbdModalContent
+    
   ],
   imports: [
     BrowserModule,

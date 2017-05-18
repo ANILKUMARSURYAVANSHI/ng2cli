@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
 
 import { MyCourseServiceService } from '../my-course-service.service';
 import {Courses} from '../data';
+import {NgbModal, NgbActiveModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({
@@ -12,21 +15,24 @@ import {Courses} from '../data';
 })
 export class MyGisComponentComponent implements OnInit {
   errorMessage: string;
+
+closeResult: string;
   mydata: any; 
   heroes: Courses[] = [];
   myname: string[];
   mode = 'Observable';
   myObj: any;
-    mgmtTypeList = ['Government', 'Govt Aided',
-            'Govt. Unaided', 'Private'];
-            model= { instname : ""};
-             newReg() { alert('hi'+ this.model.instname) };
-  constructor(private CourseService: MyCourseServiceService) { 
+   myRec: any;
+   counter:any;
+            
+             newReg() { alert('hi') };
+  constructor(private CourseService: MyCourseServiceService, private modalService: NgbModal) { 
     this.myObj = [{
       name: 'Juri',
       website: 'http://juristr.com',
       twitter: '@juristr'
     }];
+    this.myRec = {};
        this.mydata = [
   
   {
@@ -56,6 +62,36 @@ export class MyGisComponentComponent implements OnInit {
                        error =>  this.errorMessage = <any>error);             
   }
 
+ 
+
+   open(content) {
+    this.modalService.open(content).result.then((result) => {
+      this.mydata[this.counter] =    Object.assign({}, this.myRec);
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+
+
+private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+
+  editRec(i) {
+    console.log(i);
+    this.counter = i;
+    this.myRec =    Object.assign({}, this.mydata[i]); //deep copy
+    console.log(this.myRec);
+    
+  };
   
   
 
